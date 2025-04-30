@@ -4,7 +4,6 @@
 ## 🧾 Overview
 
 **Project Title**: Retail Sales Analysis  
-**Level**: Beginner  
 **Database**: `p1_retail_db`
 
 This project demonstrates foundational SQL skills used in data analysis — from data exploration and cleaning to answering key business questions. Ideal for beginners seeking to strengthen their SQL proficiency through hands-on retail data analysis.
@@ -188,7 +187,4 @@ GROUP BY shift;
 
 ---
 
-## 👨‍💻 Author: Zero Analyst
-
-Part of my data analyst portfolio.  
-📧 [LinkedIn](https://www.linkedin.com/in/najirr) | 🎥 [YouTube](https://www.youtube.com/@zero_analyst) | 📷 [Instagram](https://www.instagram.com/zero_analyst/) | 💬 [Discord](https://discord.gg/36h5f2Z5PK)
+## Data soure : Zero Analyst from youtube 
