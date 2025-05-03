@@ -1,29 +1,28 @@
+# 🛍️ Retail Sales Analysis SQL Project
 
-# Retail Sales Analysis SQL Project
-
-## 🧾 Overview
+## 📘 Overview
 
 **Project Title**: Retail Sales Analysis  
-**Database**: `p1_retail_db`
+**Database**: `p1_retail_db`  
 
-This project demonstrates foundational SQL skills used in data analysis — from data exploration and cleaning to answering key business questions. Ideal for beginners seeking to strengthen their SQL proficiency through hands-on retail data analysis.
+This project showcases essential SQL skills applied to a retail dataset — from database creation and data cleaning to generating business insights. It’s designed for beginners to practice and build strong SQL foundations using real-world retail scenarios.
 
 ---
 
 ## 🎯 Objectives
 
-1. **Database Setup** – Build and populate a retail sales database.
-2. **Data Cleaning** – Detect and remove incomplete records.
-3. **Exploratory Data Analysis (EDA)** – Understand structure and distribution of data.
-4. **Business Insights** – Use SQL to derive meaningful insights.
+1. **Database Setup** – Build and populate a structured retail sales database.
+2. **Data Cleaning** – Detect and remove incomplete or missing data entries.
+3. **Exploratory Data Analysis (EDA)** – Understand the structure and nature of the dataset.
+4. **Business Insights** – Use SQL queries to extract actionable business insights.
 
 ---
 
 ## 🗂️ Project Structure
 
-### 1. Database Setup
+### 1. 🏗️ Database Setup
 
-- Create the database and core table:
+Create the database and main table:
 
 ```sql
 CREATE DATABASE p1_retail_db;
@@ -45,16 +44,18 @@ CREATE TABLE retail_sales (
 
 ---
 
-### 2. Data Exploration & Cleaning
+### 2. 🧹 Data Exploration & Cleaning
 
-- Count total records, unique customers, and categories:
+Count records and explore unique values:
+
 ```sql
 SELECT COUNT(*) FROM retail_sales;
 SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
 SELECT DISTINCT category FROM retail_sales;
 ```
 
-- Identify and delete records with missing values:
+Identify and delete records with missing data:
+
 ```sql
 SELECT * FROM retail_sales
 WHERE sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
@@ -69,14 +70,16 @@ WHERE sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR
 
 ---
 
-### 3. Business Analysis: SQL Queries
+### 3. 📊 Business Analysis (SQL Queries)
 
-1. Sales made on `2022-11-05`:
+**Sales on a specific day:**
+
 ```sql
 SELECT * FROM retail_sales WHERE sale_date = '2022-11-05';
 ```
 
-2. Clothing category sales > 4 items during November 2022:
+**Clothing sales (≥ 4 items) during November 2022:**
+
 ```sql
 SELECT * FROM retail_sales
 WHERE category = 'Clothing'
@@ -84,27 +87,31 @@ WHERE category = 'Clothing'
   AND quantity >= 4;
 ```
 
-3. Total sales per category:
+**Total sales per category:**
+
 ```sql
 SELECT category, SUM(total_sale) AS net_sale, COUNT(*) AS total_orders
 FROM retail_sales
 GROUP BY category;
 ```
 
-4. Average age of customers in 'Beauty' category:
+**Average age of customers in 'Beauty' category:**
+
 ```sql
 SELECT ROUND(AVG(age), 2) AS avg_age
 FROM retail_sales
 WHERE category = 'Beauty';
 ```
 
-5. Transactions with total sales > 1000:
+**Transactions with total sales > 1000:**
+
 ```sql
 SELECT * FROM retail_sales
 WHERE total_sale > 1000;
 ```
 
-6. Transactions by gender and category:
+**Transactions by gender and category:**
+
 ```sql
 SELECT category, gender, COUNT(*) AS total_trans
 FROM retail_sales
@@ -112,7 +119,8 @@ GROUP BY category, gender
 ORDER BY category;
 ```
 
-7. Best-performing month each year by average sales:
+**Best-performing month each year by average sales:**
+
 ```sql
 SELECT year, month, avg_sale
 FROM (
@@ -127,7 +135,8 @@ FROM (
 WHERE rank = 1;
 ```
 
-8. Top 5 customers by total sales:
+**Top 5 customers by total sales:**
+
 ```sql
 SELECT customer_id, SUM(total_sale) AS total_sales
 FROM retail_sales
@@ -136,14 +145,16 @@ ORDER BY total_sales DESC
 LIMIT 5;
 ```
 
-9. Unique customers per category:
+**Unique customers per category:**
+
 ```sql
 SELECT category, COUNT(DISTINCT customer_id) AS cnt_unique_cs
 FROM retail_sales
 GROUP BY category;
 ```
 
-10. Order count by shift (Morning <12, Afternoon 12–17, Evening >17):
+**Order count by shift (Morning <12, Afternoon 12–17, Evening >17):**
+
 ```sql
 WITH hourly_sale AS (
     SELECT *,
@@ -184,7 +195,3 @@ GROUP BY shift;
 2. **Set Up Database**: Run `database_setup.sql` to create and populate tables.
 3. **Analyze**: Use `analysis_queries.sql` to run insights.
 4. **Explore Further**: Modify queries to answer your own business questions.
-
----
-
-## Data soure : Zero Analyst from youtube 
